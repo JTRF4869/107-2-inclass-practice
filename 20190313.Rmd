@@ -6,6 +6,19 @@ output: html_document
 ---
 
 gooa
+
+```{r}
+a <- 2
+3 -> b
+c <- 7
+```
+
+```{r}
+65 + b
+`108setmaily` <- 108
+```
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
