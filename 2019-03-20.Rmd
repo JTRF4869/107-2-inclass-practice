@@ -8,4 +8,85 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r}
+
+dialogue <- c("小明說：'明天不用上課。'",
+               "小花說：'真的嗎？'")
+
+cat(dialogue, sep="\n")
+
+```
+```{r}
+
+aLogical <- c(T,TRUE,F,FALSE,FALSE)
+
+# 加總向量內的所有元素值。t=1 f=0 所以括號內全部加起來＝2
+sum(aLogical)
+
+```
+
+＃Factor
+
+```{r}
+studentMajors <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+```
+
+```{r}
+studentMajors
+
+```
+
+＃Ｒ會將法律系視為1 經濟系視為2 因為整數比字串好儲存 levels顯示的類別名稱
+
+```{r}
+typeof(studentMajors)
+```
+
+#Ｒ用integer整數的模式存他
+
+```{r}
+as.integer(studentMajors)
+```
+
+＃真正儲存內容可以用as.integer()將其顯示出來
+
+```{r}
+birthplace <- factor(
+  c("台北市","台南市","台北市","台南市","台南市")
+  )
+birthplace
+as.integer(birthplace)
+levels(birthplace)
+sum(as.integer(birthplace))
+typeof(birthplace)
+```
+
+```{r}
+library(lubridate)
+
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+  class(dtObject)
+  dtObject
+  twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+```
+```{r}
+typeof(dtObject)
+as.integer(dtObject)
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tzone="Asia/Taipei")
+```
+
+
+
+
+
 
