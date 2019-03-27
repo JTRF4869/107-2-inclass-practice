@@ -81,10 +81,12 @@ typeof(dtObject)
 as.integer(dtObject)
 ```
 
-```{r}
-twDateTime <- ymd_hms("2019-03-18 14:04:00", tzone="Asia/Taipei")
-```
 
+
+```{r}
+library(lubridate)
+
+```
 
 
 

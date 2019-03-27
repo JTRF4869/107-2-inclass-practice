@@ -1,0 +1,88 @@
+---
+title: '2019-03-27'
+author: "JTRF"
+date: "2019/3/27"
+output: html_document
+---
+
+```{r}
+library(lubridate)
+
+```
+
+
+```{r}
+
+twDateTime <- ymd_hms("2019-04-01 04:01:00", tz="America/New_York")
+twDateTime
+Sys.timezone()
+```
+
+```{r}
+
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+twDateTime
+LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
+LisbonDateTime
+as.double(LisbonDateTime)
+as.double(twDateTime)
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz
+                      ="Asia/Taipei")
+```
+```{r}
+ymd("2018-09-18",tz='Asia/Taipei')
+day2<-mdy("march,3,2019")
+day2
+```
+#第五章
+```{r}
+aL<- c(1L, 5L, -3L)
+bL <- c(0.5, 3L, 2L)
+```
+
+
+```{r}
+a %% bL
+```
+```{r}
+c <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+d <- ymd_hms("2019-03-19 14:04:00", tz="Asia/Taipei")
+c + years(2)
+```
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+twDateTime +1
+twDateTime +15972
+```
+
+#Relation
+```{r}
+x <- 5
+y <- 7
+x2 <- c(1,5,10)
+y2 <- c(-1,5,20)
+x2 > y2
+
+```
+```{r}
+library(readr)
+exData2 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/exData2.csv")
+currency <- exData2$幣別
+```
+
+```{r}
+x5 <- c("台北市","新北市","高雄市")
+greatTaipei <- c("台北市","新北市")
+
+x5 %in% greatTaipei
+!(x5 %in% greatTaipei)
+```
+```{r}
+x3 <- c(1, NA, 20)
+y3 <- c(NA, 2, 30)
+x3 == y3
+```
+
