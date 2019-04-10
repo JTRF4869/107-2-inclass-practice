@@ -1,0 +1,110 @@
+---
+
+title: "R Notebook"
+output: html_notebook
+---
+#str_subset 找出有y項字元的
+#str_detect 是否帶有y項字元
+```{r}
+library(stringr)
+course <- c("個體經濟學","投資學","總體經濟學")
+str_subset(course,"經濟學")
+str_detect(course,"經濟學")
+```
+#str_sub 取出某單位至某單偉的字元
+```{r}
+studentID<-c(
+  '410177115','410176080','410174233','410177011','410182045','410176014')
+str_sub(studentID,2,4)#入學年度(取2~4的字源)
+str_sub(studentID,5,6)#學號
+```
+
+```{r}
+month <- c("3","4","2")
+day <- c("11","5","7")
+char1 <- c("月","月","月")
+char2 <- c("日","日","日")
+
+str_c(month,char1,day,char2)
+
+str_c(month,day, sep="-")
+```
+#split 分割
+#replace 取代
+```{r}
+dates <- c("3-11", "4-5",  "2-7")
+str_split(dates,"-")
+str_replace(dates,"-","月")
+dates2 <- c("3-11-2019", "4-5-2017",  "2-7-2015")
+dates2
+str_replace(dates2,"-","/")#只取代最前的-
+str_replace_all(dates2,"-","/")#全部以/取代-
+```
+
+
+```{r}
+library(readr)
+githubData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/githubData.csv")
+github <- c("https://github.com")
+username <- githubData$`GitHub username`[11:16]
+reponame <- githubData$`GitHub repo name`[11:16]
+str_c(github,username,reponame,sep="/")
+```
+```{r}
+library(readr)
+filmVotingData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv")
+birthday<-filmVotingData$`出生西元年月日（驗證本人用）`
+year <- str_sub(birthday,1,4)
+month <- str_sub(birthday,5,6)
+day <- str_sub(birthday,7,8)
+birthday <- str_c("西元",year,"年",month,"月",day,"日")
+birthday
+```
+
+```{r}
+民國年月<-c("099/01","099/02","099/03")
+year <- as.integer(str_sub(民國年月,1,3))+1911
+month <- str_sub(民國年月,5,6)
+str_c(year,month,sep="/")
+```
+
+#Vector
+```{r}
+a<-c(1:3)
+typeof(a)
+a
+
+```
+```{r}
+aWithNames <- c(
+  a1=1,
+  a2=2,
+  a3=3
+)
+typeof(a)
+aWithNames
+```
+
+```{r}
+b1<-list("a","b",c(1:10))#第三相指一到十
+typeof(b1)
+b1
+```
+
+```{r}
+studentRecord <-
+  list(
+    學號="410073058",
+    姓名="王小明",
+    性別="男",
+    學年平均成績=list(
+      一年級=88,
+      二年級=90.3,
+      三年級=92,
+      四年級=95
+    )
+  )
+
+studentRecord
+```
+
