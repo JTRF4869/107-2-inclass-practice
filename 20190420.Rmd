@@ -1,0 +1,85 @@
+---
+title: '20190424'
+author: "JTRF"
+date: "2019/4/24"
+output: html_document
+---
+
+```{r}
+Mat2 <- matrix(
+  c("a","b","c","d"),4,1  #四個橫的 一個縱的
+)
+Mat2
+```
+
+```{r}
+class(Mat2)
+typeof(Mat2)
+```
+```{r}
+Mat2[3]#matrix 只改變視覺上的變化,r仍然視他為一行字元
+Mat2[c(T,T,F,F)]
+Mat2[c(1,2)]
+```
+
+##data  frame
+```{r}
+Stulist <- list(
+  Number=c(172,214,322,425,517),
+  Name=c("A","B","C","D"),
+  Grade=c(80,60,90,70,50)
+)
+Stulist
+```
+
+```{r}
+StuDF <- data.frame(
+  Number=c(172,214,322,425,517),
+  Name=c("A","B","C","D","E"),
+  Grade=c(80,60,90,70,50)
+  )
+StuDF
+```
+
+```{r}
+StuDF[[2]][[3]]#等於StuDF[["Name"]][[3]]
+
+```
+
+```{r}
+StuDF2 <- data.frame(
+  Number=c(172,214,322,425,517),
+  Name=c("A","B","C","D","E"),
+  Grade=c(80,60,90,70,50),
+  stringsAsFactors = FALSE#使得Name那個縱列變成Character
+  )
+StuDF2
+```
+```{r}
+as.data.frame(Stulist) -> StuDF4
+class(StuDF4)
+```
+```{r}
+chosenLETTERS <- LETTERS[1:15]
+matObj1 <- matrix(chosenLETTERS,5,3)
+matObj1
+```
+
+```{r}
+LETTERS
+chosenLETTERS <- LETTERS[1:8]
+m <- matrix(chosenLETTERS,2,4)
+tolower(m)#轉成小寫
+toupper(m)#轉成大寫
+```
+```{r}
+matObj1
+matObj1[c(1,4),c(2,3)]#拿出橫軸一和四跟縱軸二三形成新矩陣
+```
+```{r}
+matObj1[c(T,F,F,T,F),c(F,T,T)]
+```
+```{r}
+matObj1[c(1:4),c(2,3)]
+```
+
